@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totally Random Coffee Payer Selector</title>
+    <script>
+        function getRandomPayer() {
+            const payers = ["Martini", "Paulo Martini"]; // Add more names as needed
+            const randomIndex = Math.floor(Math.random() * payers.length);
+            const selectedPayer = payers[randomIndex];
+            document.getElementById("result").textContent = `Congratulations ${selectedPayer}!`;
+            document.getElementById("celebrate").textContent = `You got picked to pay for the next round of coffee! Enjoy!`;
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background-color: #0078d4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #005a9e;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #celebrate {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #008C45, #F4F9FF, #CD212A);
+            margin: 20px auto;
+            padding: 2px 100px;
+        }
+
+        </style>
+</head>
+<body>
+    <h1>Totally Random Coffee Payer Selector</h1>
+    <div>
+        <hr>
+    </div>
+    <h5>Click the button to discover who is the person who should pay for the coffee.</h5>
+    <button onclick="getRandomPayer()">Select Payer</button>
+    <p id="result"></p>
+    <p id="celebrate"></p>
+</body>
+</html>
