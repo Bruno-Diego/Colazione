@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Totally Random Coffee Payer Selector</title>
     <script>
+        let payers = ["Martini", "Paulo Martini", "Martini Paulo", "Paulo (Martini)"]; // Add more names as needed
+        let remainingPayers = [...payers];
+        let remainingTries = payers.length; // Initialize remaining tries
         function getRandomPayer() {
-            const payers = ["Martini", "Paulo Martini"]; // Add more names as needed
-            const randomIndex = Math.floor(Math.random() * payers.length);
-            const selectedPayer = payers[randomIndex];
-            document.getElementById("result").textContent = `Congratulations ${selectedPayer}!`;
-            document.getElementById("celebrate").textContent = `You got picked to pay for the next round of coffee! Enjoy!`;
+
+            if (remainingTries > 0 && remainingPayers.length > 0) {
+                const randomIndex = Math.floor(Math.random() * payers.length);
+                const selectedPayer = payers[randomIndex];
+                document.getElementById("result").textContent = `Congratulations ${selectedPayer}!`;
+                document.getElementById("celebrate").textContent = `You got picked to pay for the next round of coffee! Enjoy!`;
+                remainingTries--;
+            } else {
+                document.getElementById("result").textContent = "Numbers of attempts have exceeded today, try again tomorrow!";
+                document.getElementById("celebrate").style.display = "none";
+                document.getElementsByTagName("button")[0].style.display = "none";
+                document.getElementsByTagName("h5")[0].style.display = "none";
+                // Optionally disable the button or provide another message
+            }
+
         }
     </script>
     <style>
