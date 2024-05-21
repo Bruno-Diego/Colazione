@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Totally Random Coffee Payer Selector</title>
+    <title>Selettore di pagatori di caffè totalmente casuale</title>
     <script>
         let payers = ["Martini", "Paulo Martini", "Martini Paulo", "Paulo (Martini)"]; // Add more names as needed
-        let nonpayers = ["Viarizzio", "Da Silva", "Marchisio", "Morello", "Pollio"]; // Add more names as needed
+        let nonpayers = ["Viarizzio", "Da Silva", "Marchisio", "Morello", "Pollio", "Martini Paulo"]; // Add more names as needed
         let remainingPayers = [...payers];
         let remainingTries = payers.length; // Initialize remaining tries
         let currentIndex = 0;
@@ -47,15 +47,15 @@
                     document.getElementById("result").style.display = "block";
                     document.getElementById("celebrate").style.display = "block";
                     document.getElementById("nonplayerName").style.display = "none";
-                    document.getElementById("result").textContent = `Congratulations ${selectedPayer}!`;
-                    document.getElementById("celebrate").textContent = `You got picked to pay for the next round of coffee! Enjoy!`;
+                    document.getElementById("result").textContent = `Felicitazioni ${selectedPayer}!`;
+                    document.getElementById("celebrate").textContent = `Sei stato scelto per pagare il prossimo giro di caffè! Buon divertimento!`;
                 }, 2000); // 2000 milliseconds = 2 seconds
 
                 remainingTries--;
             } else {
                 document.getElementById("nonplayerName").style.display = "none";
                 document.getElementById("result").style.display = "block";
-                document.getElementById("result").textContent = "Numbers of attempts have exceeded today, try again tomorrow!";
+                document.getElementById("result").textContent = "Il numero di tentativi è superato oggi, riprova domani!";
                 document.getElementById("celebrate").style.display = "none";
                 document.getElementsByTagName("button")[0].style.display = "none";
                 document.getElementsByTagName("h5")[0].style.display = "none";
@@ -77,10 +77,19 @@
             height: 100vh;
         }
 
-        h1 {
+        main, header {
+            padding: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1, p, h5 {
             color: #333;
             font-size: 24px;
             margin-bottom: 20px;
+            text-align: center;
         }
         
         button {
@@ -91,6 +100,7 @@
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin: auto;
         }
         
         button:hover {
@@ -119,14 +129,25 @@
         </style>
 </head>
 <body>
-    <h1>Totally Random Coffee Payer Selector</h1>
-    <div>
-        <hr>
-    </div>
-    <h5>Click the button to discover who is the person who should pay for the coffee.</h5>
-    <button onclick="getRandomPayer()">Select Payer</button>
-    <p id="nonplayerName"></p>
-    <p id="result"></p>
-    <p id="celebrate"></p>
+    <header>
+        <h1>Selettore di pagatori di caffè totalmente casuale</h1>
+    </header>
+    <main>
+        <div>
+            <hr>
+        </div>
+        <h5>Fai clic sul pulsante per scoprire chi è la persona che deve pagare per il caffè.</h5>
+        <button onclick="getRandomPayer()">Seleziona Pagante</button>
+        <p id="nonplayerName"></p>
+        <p id="result"></p>
+        <p id="celebrate"></p>
+    </main>
+    <footer>
+        <p>
+            <strong>
+                Powered by Markisio.AI
+            </strong>
+        </p>
+    </footer>
 </body>
 </html>
